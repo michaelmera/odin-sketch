@@ -10,7 +10,26 @@
     <script src="sketch.js" defer></script>
 </head>
 <body>
-    <input id="grid-size" type="range" min="8" max="64" step="8" value="16">
+    <div id="overlay">
+        <div id="popup">
+            <label for="grid-size">16 x 16</label>
+            <input id="grid-size" name="grid-size" type="range" min="8" max="64" step="8" value="16">
+            <button data-action="reset" class="button">New Document</button>
+        </div>
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a class="button" data-action="new" href="#">New Drawing</a></li>
+            <li><a class="button" href="#">Rainbow Mode</a></li>
+            <li><a class="button" href="#">Brush</a></li>
+            <li><a class="button" href="#">Color Picker</a></li>
+            <li><a class="button" href="#">Eraser</a></li>
+        </ul>
+    </div>
+
+
+
     <div id="grid"></div>
 </body>
 </html>

@@ -1,8 +1,24 @@
 let size = 16;
 
 document.querySelector('#grid-size').addEventListener(
-    'change', (s) => init(s.target.valueAsNumber)
+    'change', (s) => document.querySelector('#popup label').textContent = `${s.target.valueAsNumber} x ${s.target.valueAsNumber}`
 )
+
+document.querySelectorAll('.button').forEach((b) => {
+    if (b.dataset.action === 'new') {
+        b.addEventListener('click', (e) => {
+            document.querySelector('#overlay').classList.add('appear');
+        })
+        return;
+    }
+
+    if (b.dataset.action === 'reset') {
+        b.addEventListener('click', (e) => {
+            init(document.querySelector('#grid-size').valueAsNumber);
+            document.querySelector('#overlay').classList.remove('appear');
+        });
+    }
+});
 
 init(size);
 
