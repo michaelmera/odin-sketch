@@ -59,6 +59,18 @@ label {
     display: block;
 }
 
+#sketchpad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    height: 450px;
+
+    border: 80px solid red;
+    border-image: url('images/frame.png') 33%;
+    image-rendering: pixelated;
+}
+
 #grid {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
