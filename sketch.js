@@ -41,6 +41,12 @@ document.querySelectorAll('.button').forEach((b) => {
         });
         return;
     }
+
+    if (b.dataset.action == 'eraser') {
+        b.addEventListener('click', (e) => {
+            state.color = undefined;
+        })
+    }
 });
 
 init(state);
@@ -58,6 +64,11 @@ function init(state) {
         grid.appendChild(cell);
     
         cell.addEventListener('mouseover', (e) => {
+            if (state.color === undefined) {
+                e.target.style.removeProperty('background-color');
+                return;
+            }
+
             color(e.target);
             state.color = (state.color + 1) % state.palette.length;
         });
