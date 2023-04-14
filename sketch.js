@@ -47,8 +47,10 @@ init(state);
 
 function init(state) {
     let grid = document.querySelector('#grid');
+
     grid.replaceChildren();
-    grid.style.gridTemplateColumns = `repeat(${state.size}, 1fr)`
+    grid.style.gridTemplateColumns = `repeat(${state.size}, 1fr)`;
+    grid.style.backgroundSize = `${4 * 256 / state.size}px`;
 
     for (let i = 0; i < state.size * state.size; i++) {
         const cell = document.createElement('div');
