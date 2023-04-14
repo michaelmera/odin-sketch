@@ -11,6 +11,7 @@ document.querySelector('#grid-size').addEventListener(
 document.querySelectorAll('.button').forEach((b) => {
     if (b.dataset.action === 'new') {
         b.addEventListener('click', (e) => {
+            document.querySelector('#grid-size').value = state.size;
             document.querySelector('#overlay').classList.add('appear');
         })
         return;
