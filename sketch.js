@@ -19,7 +19,8 @@ document.querySelectorAll('.button').forEach((b) => {
 
     if (b.dataset.action === 'reset') {
         b.addEventListener('click', (e) => {
-            init(document.querySelector('#grid-size').valueAsNumber);
+            state.size = document.querySelector('#grid-size').valueAsNumber;
+            init(state);
             document.querySelector('#overlay').classList.remove('appear');
         });
         return;
