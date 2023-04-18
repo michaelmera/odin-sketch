@@ -5,27 +5,13 @@ let state = {
 }
 
 document.querySelector('#grid-size').addEventListener(
-    'change', (s) => document.querySelector('#popup label').textContent = `${s.target.valueAsNumber} x ${s.target.valueAsNumber}`
+    'change', (s) => {
+        state.size = document.querySelector('#grid-size').valueAsNumber;
+        init(state);
+    }
 )
 
 document.querySelectorAll('.button').forEach((b) => {
-    if (b.dataset.action === 'new') {
-        b.addEventListener('click', (e) => {
-            document.querySelector('#grid-size').value = state.size;
-            document.querySelector('#overlay').classList.add('appear');
-        })
-        return;
-    }
-
-    if (b.dataset.action === 'reset') {
-        b.addEventListener('click', (e) => {
-            state.size = document.querySelector('#grid-size').valueAsNumber;
-            init(state);
-            document.querySelector('#overlay').classList.remove('appear');
-        });
-        return;
-    }
-
     if (b.dataset.action == 'rainbow') {
         b.addEventListener('click', (e) => {
             state.palette = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#0000FF', '#4B0082', '#EE82EE'];
@@ -53,6 +39,7 @@ init(state);
 
 function init(state) {
     let grid = document.querySelector('#grid');
+    document.querySelector('#grid-size').value = state.size;
 
     grid.replaceChildren();
     grid.style.gridTemplateColumns = `repeat(${state.size}, 1fr)`;

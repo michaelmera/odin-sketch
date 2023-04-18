@@ -11,16 +11,10 @@
 </head>
 <body>
     <div id="overlay">
-        <div id="popup">
-            <label for="grid-size">16 x 16</label>
-            <input id="grid-size" name="grid-size" type="range" min="8" max="64" step="8" value="16">
-            <button data-action="reset" class="button">New Document</button>
-        </div>
     </div>
 
     <div id="menu">
         <ul>
-            <li><a class="button" data-action="new" href="#">New Drawing</a></li>
             <li><a class="button" data-action="rainbow" href="#">Rainbow Mode</a></li>
             <li><a class="button" data-action="pen" href="#">Pen Tool</a></li>
             <li><a class="button" data-action="eraser" href="#">Eraser</a></li>
@@ -29,6 +23,7 @@
 
     <div id="sketchpad">
         <div id="grid"></div>
+        <input id="grid-size" name="grid-size" type="range" min="8" max="64" step="8" value="16" orient="vertical">
     </div>
 </body>
 </html>
